@@ -37,16 +37,14 @@ public class AdminService {
     public Optional<User> updateUser(Long id, User userDetails) {
         return userRepository.findById(id).map(user -> {
             user.setName(userDetails.getName());
-            user.setEmail(userDetails.getEmail());
-            user.setRole(userDetails.getRole());
-            user.setActive(userDetails.isActive());
+            user.setPassword(userDetails.getPassword());
+            user.setUsername(userDetails.getUsername());
             return userRepository.save(user);
         });
     }
 
     public void deactivateUser(Long id) {
         userRepository.findById(id).ifPresent(user -> {
-            user.setActive(false);
             userRepository.save(user);
         });
     }
@@ -59,9 +57,8 @@ public class AdminService {
     public Optional<Order> updateOrder(Long id, Order orderDetails) {
         return orderRepository.findById(id).map(order -> {
             order.setStatus(orderDetails.getStatus());
-            order.setOrderDate(orderDetails.getOrderDate());
-            order.setRestaurantId(orderDetails.getRestaurantId());
-            order.setUserId(orderDetails.getUserId());
+            order.setTotalAmount(orderDetails.getTotalAmount());
+            order.setCustomerId(orderDetails.getCustomerId());
             return orderRepository.save(order);
         });
     }
