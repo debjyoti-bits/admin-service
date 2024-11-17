@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -17,11 +18,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Date orderDate;
-    private String status; // pending, completed, cancelled
-    private Long restaurantId;
-    private Long userId;
-
-    // Getters and Setters
+    private Long customerId;
+    private String status;
+    private BigDecimal totalAmount;
 }

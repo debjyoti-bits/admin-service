@@ -19,9 +19,5 @@ public class User {
     private String username;
     private String password;
     private String name;
-    private String email;
-    private String role;  // customer, restaurant_owner, delivery_personnel
-    private boolean active;
-
     // Getters and Setters
 }
